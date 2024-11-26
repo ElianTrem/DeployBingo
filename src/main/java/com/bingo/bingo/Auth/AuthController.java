@@ -41,7 +41,11 @@ public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
 
     // Return the user's role
     String roleName = user.getRole().getRole_name();
-    return ResponseEntity.ok(new LoginResponse(roleName));
+    //return the id of the user
+    int userId = user.getUser_id();
+    //return user name
+    String userName = user.getName();
+    return ResponseEntity.ok(new LoginResponse(roleName, userId, userName));
 }
 
 }
